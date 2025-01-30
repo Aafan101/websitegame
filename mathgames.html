@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Challenge</title>
+    <link rel="stylesheet" href="../css/mathgames.css">
+    <img src="../assets/hellokitty.png" class="floating-kitty" style="top: 30%;" alt="Hello Kitty">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="timer">Time Left: 60s</div>
+        <!-- Introduction Message -->
+        <div class="intro-message">
+            <h1>Welcome To Your Worst Nightmare...Math 🧮</h1>
+            <p>To see if you are worthy of the rest of this you must complete these simple 3rd grade math problems. You got this Baby! 😊</p>
+        </div>
+
+        <!-- Math Game Section -->
+        <div id="math-game">
+            <p id="question">Lets start off strong my love</p>
+            <input type="number" id="answer" placeholder="Your Answer">
+            <button id="submit">Submit</button>
+            <p id="feedback"></p>
+            <button id="next-button" style="display: none;">Next</button>
+        </div>
+        
+            <!-- Vinyl Player -->
+        <div id="vinyl-player">
+            <img id="vinyl" src="../assets/hello-kitty-vinyl.png" alt="Vinyl Record">
+            <div id="vinyl-controls">
+                <button id="prev">⏪</button>
+                <button id="play-pause">▶️</button>
+                <button id="next">⏩</button>
+            </div>
+            <p id="current-song">Currently Playing: Math Song</p>
+        </div>
+    </div>
+
+    <script src="../js/mathgames.js" defer></script>
+</body>
+</html>

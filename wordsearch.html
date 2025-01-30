@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Council Of Cats Search Game!</title>
+    <link rel="stylesheet" type="text/css" href="../css/wordsearch.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <h1>The Council Of Cats Search Game!</h1>
+        <h2 id="instructions">This is the last challenge so lets end strong!</h2>
+        <h3 id="themeIntro">The theme is: <span id="wordTheme"></span></h3>
+        
+        <div id="controls">
+            <button id="newGameButton" type="button">New Game</button>
+            <button id="solveButton" type="button">Release the sacred answers!</button>
+        </div>
+        
+		<div id="game-wrapper">
+			<div id="wordboard"></div>
+			<div>
+				<div id="wordlist"></div>
+				<!-- Vinyl Player -->
+				<div id="vinyl-player">
+					<img id="vinyl" src="../assets/hello-kitty-vinyl.png" alt="Vinyl Record">
+					<div id="vinyl-controls">
+						<button id="prev">⏪</button>
+						<button id="play-pause">▶️</button>
+						<button id="next">⏩</button>
+					</div>
+					<p id="current-song">Currently Playing: Cat Song</p>
+				</div>
+                <a href="../finale.html">
+                    <button class="continue-application">
+                        <div>
+                            <div class="pencil"></div>
+                            <div class="folder">
+                                <div class="top">
+                                    <svg viewBox="0 0 24 27">
+                                        <path d="M1,0 L23,0 C23.5522847,-1.01453063e-16 24,0.44771525 24,1 L24,8.17157288 C24,8.70200585 23.7892863,9.21071368 23.4142136,9.58578644 L20.5857864,12.4142136 C20.2107137,12.7892863 20,13.2979941 20,13.8284271 L20,26 C20,26.5522847 19.5522847,27 19,27 L1,27 C0.44771525,27 6.76353751e-17,26.5522847 0,26 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 Z"></path>
+                                    </svg>
+                                </div>
+                                <div class="paper"></div>
+                            </div>
+                        </div>
+                        Move on to finale
+                    </button>
+                </a>
+    </div>
+
+    <!-- Floating Kitties -->
+    <div id="floating-kitties">
+        <img src="../assets/kitty1.png" alt="Kitty 1" class="floating-kitty">
+        <img src="../assets/kitty2.jpg" alt="Kitty 2" class="floating-kitty">
+        <img src="../assets/kitty3.png" alt="Kitty 3" class="floating-kitty">
+        <img src="../assets/kitty4.png" alt="Kitty 4" class="floating-kitty">
+        <img src="../assets/kitty5.png" alt="Kitty 5" class="floating-kitty">
+    </div>
+
+    <script src="../js/wordpaths.js"></script>
+    <script src="../js/wordsearchcontroller.js"></script>
+    <script src="../js/wordsearchlogic.js"></script>
+    <script src="../js/wordsearchview.js"></script>
+    <script src="../js/floatingKitties.js"></script>
+
+    <script>    
+        $(document).ready(function() {
+            new WordSearchController("#wordboard", "#wordlist", "#solveButton", "#newGameButton", "#instructions", "#wordTheme");
+        });
+    </script>
+</body>
+</html>

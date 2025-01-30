@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hatsune Miku's Crossword</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/crossword.css">
+  <script src="../js/crossword.js" defer></script>
+</head>
+<body onload="initializeScreen()">
+  <!-- Welcome Section -->
+  <div class="header">
+    <h1>🎵 Welcome to Miku's Crossword 🎵</h1>
+    <p>Lets see just how smart you are baby❤️</p>
+  </div>
+
+  <div class="main-container">
+    <!-- Crossword Puzzle -->
+    <div id="crossword-container">
+      <table id="puzzel"></table>
+
+      <!-- Buttons -->
+      <div id="button-container">
+        <button class="butt" onclick="clearAllClicked()">Clear All</button>
+        <button class="butt" onclick="checkClicked()">Check</button>
+        <button class="butt" onclick="solveClicked()">Solve</button>
+        <button class="butt" onclick="clueClicked()">Clue</button>
+      </div>
+    </div>
+
+    <!-- Hints Section -->
+    <div id="hintsTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Horizontal</th>
+            <th>Vertical</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Your butt is the</td>
+            <td>2. Hot witch lady </td>
+          </tr>
+          <tr>
+            <td>3. Your new hood</td>
+            <td>4. Her Second name</td>
+          </tr>
+          <tr>
+            <td>5. Us in 5 years 🙏</td>
+            <td>6. Your old home</td>
+          </tr>
+          <tr>
+            <td>7. You have my </td>
+            <td>8. Our hangout spot </td>
+          </tr>
+          <tr>
+            <td>9. Best Fanta flavor</td>
+            <td>10. Best refreshment </td>
+          </tr>
+          <tr>
+            <td>11. What Syria is</td>
+            <td>12. Her first name</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <button class="btn-class-name" onclick="navigateToWordle()">
+        <span>Next</span>
+        <svg viewBox="0 0 320 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+          <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z">
+          </path>
+        </svg>
+      </button>
+    
+
+       <!-- Vinyl Player -->
+       <div id="vinyl-player">
+        <img id="vinyl" src="../assets/hello-kitty-vinyl.png" alt="Vinyl Record">
+        <div id="vinyl-controls">
+            <button id="prev">⏪</button>
+            <button id="play-pause">▶️</button>
+            <button id="next">⏩</button>
+        </div>
+        <p id="current-song">Currently Playing: Miku Song</p>
+    </div>
+</div>
+
+</body>
+</html>
