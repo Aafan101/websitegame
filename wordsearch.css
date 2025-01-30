@@ -1,0 +1,514 @@
+* {
+
+	text-align: center;
+	font-family:  "Moon", Arial, sans serif;
+	font-weight: normal;
+
+}
+
+h1, h2, #wordTheme, #solveButton, #newGameButton, .listWord {
+
+	padding: 5px;
+
+}
+
+h1, h2, #wordTheme, #solveButton, #newGameButton {
+
+	border: 2px black solid;
+	border-radius: 8px;
+
+} 
+
+h1, h2, .cell, #wordTheme, #wordlist {
+
+	background-color: white;
+
+}
+
+h1, h2 {
+
+	margin: 10px auto 10px auto;
+	display: table;
+
+}
+
+body {
+
+    background: url('../assets/cat.png') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: "Moon", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+
+}
+
+#game-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 100px; /* Space between the board and the word list */
+	margin-top: 10px;
+}
+
+#wordTheme {
+
+	border-radius: 8px;
+
+}
+#themeIntro {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.8); /* Light white background with slight transparency */
+    padding: 5px 10px;
+    border-radius: 8px; /* Rounded corners for a softer look */
+    margin: 10px auto; /* Center the element */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+}
+#wordboard {
+	border: 2px black solid;
+	display: grid;
+	grid-template-columns: repeat(15, 30px);
+	gap: 2px;
+}
+
+#wordlist {
+	min-width: 200px;
+	text-align: left;
+	font-size: 20px;
+	border: 2px black solid;
+	padding: 10px;
+	background-color: white;
+}
+
+.boardRow {
+
+	display: table-row;
+
+}
+
+.cell {
+
+	margin: 0;
+    border: 1x solid #000;
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #fff;
+    cursor: default;
+
+	/*ensures text can't be accidentally selected*/
+	cursor: default; 
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.cell:hover {
+
+	background-color: rgb(151, 141, 242);
+
+}
+
+.cell.selectable {
+
+	background-color: rgb(206, 206, 234);
+
+}
+
+.cell.selected { 
+
+	background-color: rgb(106, 90, 205);
+
+}
+
+.cell.found {
+
+	background-color: rgb(158, 123, 158);
+	border: 1px black solid;
+	font-weight: bold;
+
+}
+
+
+.listRow {
+
+	display: table-row;
+
+}
+
+.listWord {
+
+	display: table-cell;
+	
+}
+
+.listWord.found {
+
+	color: rgb(158, 123, 158);
+	text-decoration: line-through;
+	
+}
+
+#newGameButton, #solveButton {
+    background-color: #ffcccb;
+    color: #2c2c54;
+    font-family: "Moon", Arial, sans-serif;
+    border: 2px solid #2c2c54;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#newGameButton:hover, #solveButton:hover {
+    background-color: #ffc0cb;
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
+
+@font-face {
+
+	font-family: "Moon";
+	src: url("../assets/fonts/Moon-Regular.woff2") format("woff2"),
+		 url("../assets/fonts/Moon-Regular.woff") format("woff");
+	font-weight: normal;
+
+}
+
+@font-face {
+
+	font-family: "Moon";
+	src: url("../assets/fonts/Moon-Bold.woff2") format("woff2"),
+		 url("../assets/fonts/Moon-Bold.woff") format("woff");
+	font-weight: bold;
+
+}
+
+/* Center the whole game on the screen */
+#game-container {
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Center buttons and controls */
+#controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between buttons */
+    margin-bottom: 20px;
+}
+
+#wordTheme {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: white;
+    margin-right: 20px; /* Add spacing to the next element */
+}
+
+.floating-kitty {
+	pointer-events: none; /* Makes the element unclickable */
+    position: absolute;
+    width: 300px;
+}
+
+/* Animation for the first cat */
+@keyframes move-across-1 {
+    from { left: -10%; top: 5%; }
+    to { left: 120%; top: 80%; }
+}
+
+/* Animation for the second cat */
+@keyframes move-across-2 {
+    from { left: 90%; top: -10%; }
+    to { left: -10%; top: 110%; }
+}
+
+/* Animation for the third cat */
+@keyframes move-across-3 {
+    from { left: 40%; top: -15%; }
+    to { left: 70%; top: 120%; }
+}
+
+/* Animation for the fourth cat */
+@keyframes move-across-4 {
+    from { left: -15%; top: 95%; }
+    to { left: 120%; top: 20%; }
+}
+
+/* Animation for the fifth cat */
+@keyframes move-across-5 {
+    from { left: 120%; top: 10%; }
+    to { left: -15%; top: 85%; }
+}
+
+
+.continue-application {
+	--color: #fff;
+	--background: #404660;
+	--background-hover: #3A4059;
+	--background-left: #2B3044;
+	--folder: #F3E9CB;
+	--folder-inner: #BEB393;
+	--paper: #FFFFFF;
+	--paper-lines: #BBC1E1;
+	--paper-behind: #E1E6F9;
+	--pencil-cap: #fff;
+	--pencil-top: #275EFE;
+	--pencil-middle: #fff;
+	--pencil-bottom: #5C86FF;
+	--shadow: rgba(13, 15, 25, .2);
+	border: none;
+	outline: none;
+	cursor: pointer;
+	position: relative;
+	border-radius: 5px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 19px;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: transparent;
+	padding: 17px 29px 17px 69px;
+	transition: background 0.3s;
+	color: var(--color);
+	background: var(--bg, var(--background));
+  }
+  
+  .continue-application > div {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 53px;
+	position: absolute;
+	overflow: hidden;
+	border-radius: 5px 0 0 5px;
+	background: var(--background-left);
+  }
+  
+  .continue-application > div .folder {
+	width: 23px;
+	height: 27px;
+	position: absolute;
+	left: 15px;
+	top: 13px;
+  }
+  
+  .continue-application > div .folder .top {
+	left: 0;
+	top: 0;
+	z-index: 2;
+	position: absolute;
+	transform: translateX(var(--fx, 0));
+	transition: transform 0.4s ease var(--fd, 0.3s);
+  }
+  
+  .continue-application > div .folder .top svg {
+	width: 24px;
+	height: 27px;
+	display: block;
+	fill: var(--folder);
+	transform-origin: 0 50%;
+	transition: transform 0.3s ease var(--fds, 0.45s);
+	transform: perspective(120px) rotateY(var(--fr, 0deg));
+  }
+  
+  .continue-application > div .folder:before, .continue-application > div .folder:after,
+  .continue-application > div .folder .paper {
+	content: "";
+	position: absolute;
+	left: var(--l, 0);
+	top: var(--t, 0);
+	width: var(--w, 100%);
+	height: var(--h, 100%);
+	border-radius: 1px;
+	background: var(--b, var(--folder-inner));
+  }
+  
+  .continue-application > div .folder:before {
+	box-shadow: 0 1.5px 3px var(--shadow), 0 2.5px 5px var(--shadow), 0 3.5px 7px var(--shadow);
+	transform: translateX(var(--fx, 0));
+	transition: transform 0.4s ease var(--fd, 0.3s);
+  }
+  
+  .continue-application > div .folder:after,
+  .continue-application > div .folder .paper {
+	--l: 1px;
+	--t: 1px;
+	--w: 21px;
+	--h: 25px;
+	--b: var(--paper-behind);
+  }
+  
+  .continue-application > div .folder:after {
+	transform: translate(var(--pbx, 0), var(--pby, 0));
+	transition: transform 0.4s ease var(--pbd, 0s);
+  }
+  
+  .continue-application > div .folder .paper {
+	z-index: 1;
+	--b: var(--paper);
+  }
+  
+  .continue-application > div .folder .paper:before, .continue-application > div .folder .paper:after {
+	content: "";
+	width: var(--wp, 14px);
+	height: 2px;
+	border-radius: 1px;
+	transform: scaleY(0.5);
+	left: 3px;
+	top: var(--tp, 3px);
+	position: absolute;
+	background: var(--paper-lines);
+	box-shadow: 0 12px 0 0 var(--paper-lines), 0 24px 0 0 var(--paper-lines);
+  }
+  
+  .continue-application > div .folder .paper:after {
+	--tp: 6px;
+	--wp: 10px;
+  }
+  
+  .continue-application > div .pencil {
+	height: 2px;
+	width: 3px;
+	border-radius: 1px 1px 0 0;
+	top: 8px;
+	left: 105%;
+	position: absolute;
+	z-index: 3;
+	transform-origin: 50% 19px;
+	background: var(--pencil-cap);
+	transform: translateX(var(--pex, 0)) rotate(35deg);
+	transition: transform 0.4s ease var(--pbd, 0s);
+  }
+  
+  .continue-application > div .pencil:before, .continue-application > div .pencil:after {
+	content: "";
+	position: absolute;
+	display: block;
+	background: var(--b, linear-gradient(var(--pencil-top) 55%, var(--pencil-middle) 55.1%, var(--pencil-middle) 60%, var(--pencil-bottom) 60.1%));
+	width: var(--w, 5px);
+	height: var(--h, 20px);
+	border-radius: var(--br, 2px 2px 0 0);
+	top: var(--t, 2px);
+	left: var(--l, -1px);
+  }
+  
+  .continue-application > div .pencil:before {
+	-webkit-clip-path: polygon(0 5%, 5px 5%, 5px 17px, 50% 20px, 0 17px);
+	clip-path: polygon(0 5%, 5px 5%, 5px 17px, 50% 20px, 0 17px);
+  }
+  
+  .continue-application > div .pencil:after {
+	--b: none;
+	--w: 3px;
+	--h: 6px;
+	--br: 0 2px 1px 0;
+	--t: 3px;
+	--l: 3px;
+	border-top: 1px solid var(--pencil-top);
+	border-right: 1px solid var(--pencil-top);
+  }
+  
+  .continue-application:before, .continue-application:after {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 2px;
+	border-radius: 1px;
+	background: var(--color);
+	transform-origin: 9px 1px;
+	transform: translateX(var(--cx, 0)) scale(0.5) rotate(var(--r, -45deg));
+	top: 26px;
+	right: 16px;
+	transition: transform 0.3s;
+  }
+  
+  .continue-application:after {
+	--r: 45deg;
+  }
+  
+  .continue-application:hover {
+	--cx: 2px;
+	--bg: var(--background-hover);
+	--fx: -40px;
+	--fr: -60deg;
+	--fd: .15s;
+	--fds: 0s;
+	--pbx: 3px;
+	--pby: -3px;
+	--pbd: .15s;
+	--pex: -24px;
+  }
+  
+/* Vinyl Player Styling */
+#vinyl-player {
+    text-align: center;
+    margin: 20px auto 0; /* Adjust margins to position it properly */
+    z-index: 10; /* Ensure it stays above other elements */
+    position: relative;
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Stack vinyl and controls vertically */
+    align-items: center; /* Center align all children */
+}
+
+#vinyl {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused; /* Paused by default */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px; /* Space between vinyl and controls */
+}
+
+#vinyl-controls {
+    margin-top: 10px;
+    display: flex; /* Align controls horizontally */
+    justify-content: center; /* Center align buttons */
+    z-index: 10;
+}
+
+#vinyl-controls button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 0 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#vinyl-controls button:hover {
+    background-color: #ff8f81;
+}
+
+#current-song {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #ffffff; /* Golden yellow for contrast */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Spinning Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

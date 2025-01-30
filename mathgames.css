@@ -1,0 +1,239 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6f7; /* Light pink background */
+    background-image: radial-gradient(circle, rgba(255, 182, 193, 0.4) 15%, transparent 15%), radial-gradient(circle, rgba(255, 182, 193, 0.2) 15%, transparent 15%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Container for all content */
+.container {
+    text-align: center;
+}
+
+/* Introduction Box */
+.intro-message {
+    margin-bottom: 20px;
+    background-color: #ffd1dc; /* Light pastel pink */
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.intro-message h1 {
+    font-size: 2rem;
+    color: #ff6f61;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.intro-message p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Math Game Section */
+#math-game {
+    margin-top: 20px;
+}
+
+#question {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff6f61;
+    margin-bottom: 10px;
+}
+
+#answer {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ff6f61;
+    outline: none;
+    width: 200px;
+    text-align: center;
+}
+
+#answer:focus {
+    box-shadow: 0px 0px 5px #ff6f61;
+}
+
+#submit {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#submit:hover {
+    background-color: #ff8f81;
+    transform: scale(1.05);
+}
+
+#feedback {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #00a86b;
+}
+
+/* Vinyl Player Styling */
+#vinyl-player {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#vinyl {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+    animation-play-state: paused;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#vinyl-controls button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#vinyl-controls button:hover {
+    background-color: #ff8f81;
+}
+
+#current-song {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #ff6f61;
+}
+
+/* Add animated math symbols */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.math-symbol {
+    position: absolute;
+    font-size: 6rem;
+    color: rgba(0, 0, 0, 0.2); /* Pink translucent */
+    animation: float 5s ease-in-out infinite;
+}
+
+.math-equation {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8); /* Dark color for visibility */
+    animation: floatEquation 8s linear infinite;
+    white-space: nowrap; /* Prevent text from breaking */
+}
+
+@keyframes floatEquation {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+#feedback {
+    animation: pop 0.6s ease-in-out;
+    transition: color 0.3s ease;
+}
+
+#next-button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
+}
+
+#next-button:hover {
+    background-color: #ff8f81;
+    transform: scale(1.05);
+}
+
+.floating-kitty {
+    position: absolute;
+    width: 300px;
+    animation: move-across 60s linear infinite;
+}
+
+
+@keyframes move-across {
+    from { left: -10%; top: 10%; }
+    to { left: 110%; top: 110% }
+}
+
+.floating-kitty-2 {
+    position: absolute;
+    width: 300px;
+    animation: move-across-2 60s linear infinite;
+}
+
+@keyframes move-across-2 {
+    from { left: 110%; top: 10%; }
+    to { left: -10%; top: 90%; }
+}
+
+#timer {
+    font-size: 6rem; /* Big and bold */
+    font-weight: bold;
+    color: #ec0aa8; /* Bright yellow */
+    text-shadow: 0 0 15px #ffcc00, 0 0 30px #ffaa00, 0 0 45px #ffaa00; /* Glowy effect */
+    margin: 20px auto;
+    animation: wobble 1s infinite; /* Goofy wobbling effect */
+}
+
+@keyframes wobble {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-5deg) scale(1.1); }
+    50% { transform: rotate(5deg) scale(1); }
+    75% { transform: rotate(-5deg) scale(0.9); }
+    100% { transform: rotate(0deg) scale(1); }
+}

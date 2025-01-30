@@ -1,0 +1,336 @@
+h1 {
+  text-align: center;
+}
+ 
+#game-board {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+}
+ 
+.letter-box {
+  border: 2px solid gray;
+  border-radius: 3px;
+  margin: 2px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+ 
+.filled-box {
+  border: 2px solid black;
+}
+ 
+.letter-row {
+  display: flex;
+}
+ 
+#keyboard-cont {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+ 
+#keyboard-cont div {
+  display: flex;
+  z-index: 10;
+}
+ 
+.second-row {
+  margin: 0.5rem 0;
+}
+ 
+.keyboard-button {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  margin: 0 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+/* Background Styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: url('../assets/syria.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Adjust transparency as needed */
+  z-index: 1;
+}
+
+/* Title Styling */
+.title {
+  position: absolute;
+  top: 5px; /* Move title upwards */
+  width: 60%; /* Full width for centering */
+  text-align: center;
+  z-index: 5;
+}
+
+.title h1 {
+  font-size: 4rem; /* Larger font size */
+  color: #ffffff; /* White text color */
+  text-shadow: 3px 3px 15px #d71920, 3px 3px 20px #007a3d; /* Enhanced shadow effect */
+  padding: 10px 20px; /* Increased padding for better visibility */
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker background */
+  border-radius: 15px;
+  font-family: 'Amiri', serif; /* Traditional font */
+}
+
+/* Level Message Styling */
+#level-msg {
+  font-size: 1.75rem;
+  color: white;
+  text-align: center;
+  margin-top: 60px; /* Position below the title */
+  padding: 5px;
+  font-family: 'Amiri', serif; /* Arabic-friendly font */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  border-radius: 5px;
+  width: 40%;
+  z-index: 5;
+  position: relative;
+}
+
+/* Floating Quotes Styling */
+#quotes-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Ensures the floating quotes don't interfere with game input */
+}
+
+.quote {
+  position: absolute;
+  font-size: 2rem;
+  font-family: 'Scheherazade New', serif; /* Arabic font */
+  color: rgb(0, 0, 0);
+  text-shadow: 2px 2px 5px rgb(255, 255, 255);
+  opacity: 1;
+  animation: float 10s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0) translateX(0);
+  }
+  50% {
+      transform: translateY(-20px) translateX(30px);
+  }
+  100% {
+      transform: translateY(0) translateX(0);
+  }
+}
+
+/* Vinyl Player Styling */
+#vinyl-player {
+  position: absolute;
+  bottom: 20px; /* Distance from the bottom */
+  left: 20px; /* Distance from the left */
+  text-align: center;
+  z-index: 5;
+}
+#vinyl {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  animation: spin 3s linear infinite;
+  animation-play-state: paused;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+#vinyl-controls button {
+  background-color: #ff6f61;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#vinyl-controls button:hover {
+  background-color: #ff8f81;
+}
+
+#current-song {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #ff6f61;
+}
+
+
+
+
+button {
+  z-index: 10;
+  position: relative;
+  padding: 15px 45px;
+  background: #f0e644;
+  font-size: 17px;
+  font-weight: 500;
+  color: #181818;
+  cursor: pointer;
+  border: 1px solid #fec195;
+  border-radius: 50px;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+button:hover {
+  border: 1px solid #f3b182;
+  background: linear-gradient(
+    85deg,
+    #fec195,
+    #fcc196,
+    #fabd92,
+    #fac097,
+    #fac39c
+  );
+  animation: wind 2s ease-in-out infinite;
+}
+
+@keyframes wind {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  0% {
+    background-position: 50% 100%;
+  }
+
+  0% {
+    background-position: 0% 50%;
+  }
+}
+
+.icon-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  transform-origin: 0 0;
+  transform: rotate(10deg);
+  transition: all 0.5s ease-in-out;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+button:hover .icon-1 {
+  animation: slay-1 3s cubic-bezier(0.52, 0, 0.58, 1) infinite;
+  transform: rotate(10deg);
+}
+
+@keyframes slay-1 {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+.icon-2 {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  width: 12px;
+  transform-origin: 50% 0;
+  transform: rotate(10deg);
+  transition: all 1s ease-in-out;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+button:hover .icon-2 {
+  animation: slay-2 3s cubic-bezier(0.52, 0, 0.58, 1) 1s infinite;
+  transform: rotate(0);
+}
+
+@keyframes slay-2 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+.icon-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  transform-origin: 50% 0;
+  transform: rotate(-5deg);
+  transition: all 1s ease-in-out;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+button:hover .icon-3 {
+  animation: slay-3 2s cubic-bezier(0.52, 0, 0.58, 1) 1s infinite;
+  transform: rotate(0);
+}
+
+@keyframes slay-3 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+
+/* Keyframes and other animations remain unchanged */
